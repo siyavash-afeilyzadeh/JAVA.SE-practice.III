@@ -1,5 +1,6 @@
 package black.model;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -13,6 +14,9 @@ public class Borrow {
     private int id;
     private Book book;
     private Member member;
-    private LocalDate borrowDate;
-    private LocalDate returnDate = null;
+
+    @Builder.Default
+    private LocalDate borrowDate = LocalDate.now();
+
+    private LocalDate returnDate;
 }
